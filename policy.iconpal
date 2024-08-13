@@ -1,0 +1,5 @@
+MS2Active = (MS2.status == "Active")
+L3Off = (L3.status == "Off")
+
+If MS2Active Then L4On since L3Off
+L4On = (L4.status == "On")

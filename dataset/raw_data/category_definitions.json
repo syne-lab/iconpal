@@ -1,0 +1,42 @@
+[
+    {
+        "Category": "True Statements",
+        "Definition": "Rules that are universally applicable without exceptions. They mandate a specific action or state under all circumstances, remaining absolute and unchanging.",
+        "Example": "In any situation, a surveillance camera must remain on."
+    },
+    {
+        "Category": "Timed Conditional Control Statements",
+        "Definition": "This category involves conditional statements with a time-based element. Actions or changes in a system's state should occur within a specified time frame. Conditions are expressed in terms of time durations, dictating actions if the condition is met within the specified time.",
+        "Example": "If MS3 is inactive for 10 minutes, then L4 should be turned off."
+    },
+    {
+        "Category": "Temporal Logic Statements",
+        "Definition": "Statements with conditions specifying relationships between events or states in relation to time. These conditions may consider the last state of a device or the duration a device has been in a certain state since another device's state.",
+        "Example": "If V is on for 15 minutes, then V will be off as long as W is off."
+    },
+    {
+        "Category": "Statements with Comparisons",
+        "Definition": "Statements using language implying a comparison with a specific threshold or range, such as 'greater than,' 'less than,' or 'within a predefined range.' These encompass conditions where a parameter must meet certain criteria.",
+        "Example": "Room 1 temperature should never exceed 25 degrees Celsius when someone is in the room."
+    },
+    {
+        "Category": "Allow Statements",
+        "Definition": "Statements with 'allow' keyword to indicate if a condition is true for only a specific condition.",
+        "Example": "Allow unlocking the front door only if it is requested by the enhanced auto-lock door app."
+    },
+    {
+        "Category": "Deny Statements",
+        "Definition": "Statements with 'deny' keyword to indicate prohibition of an action.",
+        "Example": "Deny turning off the surveillance camera unless the user is at home."
+    },
+    {
+        "Category": "Complex Conditional Statements",
+        "Definition": "Conditions requiring the consideration of multiple devices, events, or simultaneous criteria. Logical operators like 'and' or 'or' are often used. These statements involve intricate dependencies or combinations of factors for decision-making.",
+        "Example": "The garage door should be closed when the user is not home or sleeping."
+    },
+    {
+        "Category": "Simple Conditional Statements",
+        "Definition": "Statements in the format 'If X then Y' or 'Y if X' or 'Y when X.' They involve a straightforward, direct relationship where a specific action or state (Y) is mandated if a single condition or device (X) is met.",
+        "Example": "If MS2 is active, then L3 should be turned on."
+    }
+]

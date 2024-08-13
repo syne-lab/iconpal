@@ -1,0 +1,2032 @@
+[
+    {
+        "id": 1,
+        "text": "If User Away, on Vacation or Sleeping Then Door is Locked.",
+        "policy": "If Away or Vacation or Sleep Then DoorLocked\n\nAway = (HomeMode.status == \"Away\")\nVacation = (Vacation.status == \"True\")\nSleep = (HomeMode.status == \"Sleep\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 2,
+        "text": "If User Away, on Vacation or Sleeping Then Gas Stove is off.",
+        "policy": "If Away or Vacation or Sleep Then GasStoveOff\n\nAway = (HomeMode.status == \"Away\")\nVacation = (Vacation.status == \"True\")\nSleep = (HomeMode.status == \"Sleep\")\nGasStoveOff = (GasStove.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 3,
+        "text": "If Fire Sprinkler is on Then Water Valve is on.",
+        "policy": "If FireSprinklerOn Then WaterValveOn\n\nFireSprinklerOn = (Sprinkler.status == \"On\")\nWaterValveOn = (WaterValve.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 4,
+        "text": "If User Away or on Vacation Then Induction Cooktop is off.",
+        "policy": "If Away or Vacation Then CooktopOff\n\nAway = (HomeMode.status == \"Away\")\nVacation = (Vacation.status == \"True\")\nCooktopOff  = (InductionCooktop.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 5,
+        "text": "If User Away or on Vacation Then Coffee Maker is off.",
+        "policy": "If Away or Vacation Then CoffeeMakerOff\n\nAway = (HomeMode.status == \"Away\")\nVacation = (Vacation.status == \"True\")\nCoffeeMakerOff  = (CoffeeMaker.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 6,
+        "text": "If User Away or on Vacation Then Air Conditioner is off.",
+        "policy": "If Away or Vacation Then AirConditionerOff\n \nAway = (HomeMode.status == \"Away\")\nVacation = (Vacation.status == \"True\")\nAirConditionerOff= (AirConditioner.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 7,
+        "text": "If Heater is on Then Air Conditioner is off.",
+        "policy": "If HeaterOn Then AirConditionerOff\n\nHeaterOn = (Heater.status == \"On\")\nAirConditionerOff= (AirConditioner.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 8,
+        "text": "If Air Conditioner is on Then Heater is off.",
+        "policy": "If AirConditionerOn Then HeaterOff\n\nAirConditionerOn= (AirConditioner.status == \"On\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 9,
+        "text": "Turn off the gas stove, if the smoke is detected.",
+        "policy": "If SmokeDetected Then GasStoveOff \n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nGasStoveOff = (GasStove.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 10,
+        "text": "Turn off the heater, if the smoke is detected.",
+        "policy": "If SmokeDetected Then HeaterOff \n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 11,
+        "text": "Turn on the heater, if the temperature is below the threshold.",
+        "policy": "If TemperatureSensor.status < Threshold() Then HeaterOn\n\nHeaterOn = (Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 12,
+        "text": "The lights (in a bedroom, hallway, etc.) must be turned on if the motion sensor is active.",
+        "policy": "If MotionDetected Then BedroomLightOn and HallwayLightOn \n\nMotionDetected = (MotionSensor.status == \"Detected\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nHallwayLightOn = (HallwayLights.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 13,
+        "text": "When sending a voice message if it is on Thursday then turn on the TV.",
+        "policy": "If sendVoiceSMS and Thursday Then TVOn\n\nsendVoiceSMS = (sendVoiceMessage() == \"True\")\nThursday = (DayOfWeek() == \"Thursday\")\nTVOn = (TV.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 14,
+        "text": "Allow sending SMS only if it is requested by flood-alert or energy-alerts or humidity-alert or mail-arrived or medicine-reminder or presence-change-text or ready-for-rain or laundry-monitor apps.",
+        "policy": "If SMSOn Then RequestFromFloodAlertApp or RequestFromEnergyEnergyApp or RequestFromHumidityAlertApp or RequestFromMailArrivedApp or RequestFromMedicineReminderApp or RequestFromPresenceChangeTextApp or RequestFromReadyForRainApp or RequestFromLaundryMonitorApp\n\nSMSOn = (allowSMS() == \"True\")\nRequestFromFloodAlertApp = (ApplicationName() == \"Flood_Alert_App\")\nRequestFromEnergyEnergyApp = (ApplicationName() == \"Energy_Alert_App\")\nRequestFromHumidityAlertApp = (ApplicationName() == \"Humidity_Alert_App\")\nRequestFromMailArrivedApp = (ApplicationName() == \"Mail_Arrived_App\")\nRequestFromMedicineReminderApp = (ApplicationName() == \"Medicine_Reminder_App\")\nRequestFromPresenceChangeTextApp = (ApplicationName() == \"Presence_Change_Text_App\")\nRequestFromReadyForRainApp = (ApplicationName() == \"Ready_For_Rain_App\")\nRequestFromLaundryMonitorApp = (ApplicationName() == \"Laundry_Monitor_App\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 15,
+        "text": "Allow unlocking the front door only if it is requested by enhanced-auto-lock-door app.",
+        "policy": "If FrontDoorUnlocked Then RequestFromAutoDoorLock \n\nFrontDoorUnlocked = (FrontDoor.status == \"Unlocked\")\nRequestFromAutoDoorLock = (ApplicationName() == \"enhanced_auto_door_lock\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 16,
+        "text": "Allow water valve to be closed only if the fire-sprinkler was not on in the last 5 hours.",
+        "policy": "If WaterValveClosed Then (timer(FireSprinklerOff) < 18000 and timer(FireSprinklerOff) > 0)\n\nWaterValveClosed = (WaterValve.status == \"Closed\")\nFireSprinklerOff = (FireSprinkler.status==\"Off\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 17,
+        "text": "Allow water valve to be closed only if water leak sensor sensed wet within 1 minute.",
+        "policy": "If WaterValveClosed Then (timer(WaterLeakSensorWet) > 0 and timer(WaterLeakSensorWet) < 60)\n\nWaterValveClosed = (WaterValve.status == \"Closed\")\nWaterLeakSensorWet = (WaterLeakSensor.status == \"Wet\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 18,
+        "text": "Allow any light to be turned on only if the system is not on vacation mode.",
+        "policy": "If LivingRoomLightOn or BedroomLightOn or HallwayLightOn Then not(Vacation)\n\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nHallwayLightOn = (HallwayLight.status == \"On\")\nVacation = (Vacation.status == \"True\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 19,
+        "text": "Allow light to be switched on only if user is at home.",
+        "policy": "If LivingRoomLightOn or BedroomLightOn or HallwayLightOn Then Home\n\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nHallwayLightOn = (HallwayLight.status == \"On\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 20,
+        "text": "Allow hallway light to get turned on only if the hallway motion sensor has tripped within 20 sec.",
+        "policy": "If HallwayLightOn Then (timer(HallwayMotionSensorActive) < 20 and timer(HallwayMotionSensorActive) > 0) \n\nHallwayLightOn = (HallwayLight.status == \"On\")\nHallwayMotionSensorActive = (HallwayMotionSensor.status == \"Active\") ",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 21,
+        "text": "Allow siren to go off only if lastly smoke/co2 detector detects smoke/co2 with 1 minute, or flood sensor sensed wet within 1 minute, or motion is sensed within 1 minute while user is not at home.",
+        "policy": "If SirenOn Then (timer(SmokeDetected) > 0 and timer(SmokeDetected) < 60) or (timer(Co2Detected) > 0 and timer(Co2Detected) < 60) or (timer(FloodSensorWet) > 0 and timer(FloodSensorWet) < 60) or ((timer(HallwayMotionDetected) > 0 and timer(HallwayMotionDetected) < 60) and not(Home))\n\nSirenOn = (Siren.status == \"On\")\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nCo2Detected = (Co2Detector.status == \"Detected\")\nFloodSensorWet = (FloodSensor.status == \"Wet\")\nHallwayMotionDetected = (HallwayMotionSensor.status == \"Detected\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 22,
+        "text": "Allow light to be turned off only if lastly it was on within 30 sec.",
+        "policy": "If BedroomLightOff Then (timer(BedroomLightOn) > 0 and timer(BedroomLightOn) < 30)\nIf LivingRoomLightOff Then (timer(LivingRoomLightOn) > 0 and timer(LivingRoomLightOn) < 30)\nIf HallwayLightOff Then (timer(HallwayLightOn) > 0 and timer(HallwayLightOn) < 30)\n\nBedroomLightOff = (BedroomLight.status == \"Off\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOff = (LivingRoomLight.status == \"Off\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nHallwayLightOn = (HallwayLight.status == \"On\")\nHallwayLightOff = (HallwayLight.status == \"Off\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 23,
+        "text": "Allow AC to be switched on only if the heater is off.",
+        "policy": "If ACOn Then HeaterOff \nACOn = (AC.status == \"On\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 24,
+        "text": "Allow heater to be switched on only if the AC is off.",
+        "policy": "If HeaterOn Then ACOff\nACOff = (AC.status == \"Off\")\nHeaterOn = (Heater.status == \"On\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 25,
+        "text": "Allow living room window to be opened only if both heater and AC are off.",
+        "policy": "If LivingRoomWindowOpen Then (HeaterOff and ACOff)\n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nACOff = (AC.status == \"Off\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 26,
+        "text": "Allow living room Window to be opened only if lastly motion detector tripped within 60 sec.",
+        "policy": "If LivingRoomWindowOpen Then (timer(LivingRoomMotionDetected) > 0 and timer(LivingRoomMotionDetected) < 60) \n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nLivingRoomMotionDetected = (LivingRoomMotionSensor.status == \"Detected\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 27,
+        "text": "Allow living room window to be closed only if lastly it was open within 30 sec.",
+        "policy": "If LivingRoomWindowClosed Then (timer(LivingRoomWindowOpen) > 0 and timer(LivingRoomWindowOpen) < 30)\n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nLivingRoomWindowClosed = (LivingRoomWindow.status == \"Closed\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 28,
+        "text": "Allow opening the interior door only if the exterior door is closed and lastly pod is empty.",
+        "policy": "If InteriorDoorOpen Then ExteriorDoorClosed and PodEmpty\n\nInteriorDoorOpen = (InteriorDoor.status == \"Open\")\nExteriorDoorClosed = (ExteriorDoor.status == \"Closed\")\nPodEmpty = (Pod.status == \"Empty\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 29,
+        "text": "Allow setting the mode to away only if my presence is not present.",
+        "policy": "If Away Then not(UserPresent)\n\nAway = (HomeMode.status == \"Away\")\nUserPresent= (Presence.status == \"Detected\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 30,
+        "text": "Allow setting the mode to home only if my presence is present.",
+        "policy": "If Home Then UserPresent\n\nHome = (HomeMode.status == \"Home\")\nUserPresent= (Presence.status == \"Detected\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 31,
+        "text": "Allow turning off coffee machine only if lastly it was on within 30 sec.",
+        "policy": "If CoffeeMachineOff Then (timer(CoffeeMachineOn) > 0 and timer(CoffeeMachineOn) < 30)\n\nCoffeeMachineOff = (CoffeeMachine.status == \"Off\")\nCoffeeMachineOn = (CofeeMachine.status == \"On\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 32,
+        "text": "Allow turning off TV only if lastly it was on within 30 sec.",
+        "policy": "If TVOff Then (timer(TVOn) > 0 and timer(TVOn) < 30)\n\nTVOff = (TV.status == \"Off\")\nTVOn = (TV.status == \"On\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 33,
+        "text": "Allow turning off water pump only if lastly it was on within 120 sec.",
+        "policy": "If WaterPumpOff Then (timer(WaterPumpOn) > 0 and timer(WaterPumpOn) < 120)\n\nWaterPumpOff = (WaterPump.status == \"Off\")\nWaterPumpOn = (WaterPump.status == \"On\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 34,
+        "text": "Allow turning off water pump only if the basement moisture sensor senses dry.",
+        "policy": "If WaterPumpOff Then MoistureSensorDry \n\nWaterPumpOff = (WaterPump.status == \"Off\")\nMoistureSensorDry = (BasementMoistureSensor.status == \"Dry\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 35,
+        "text": "Allow turning off thermostat only if lastly it was on within 120 sec.",
+        "policy": "If ThermostatOff Then (timer(ThermostatOn) > 0 and timer(ThermostatOn) < 120) \n\nThermostatOff = (Thermostat.status == \"Off\")\nThermostatOn = (Thermostat.status == \"On\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 36,
+        "text": "Allow changing light level only if user is at home.",
+        "policy": "If ChangeLightLevel Then Home \n\nChangeLightLevel = (LightDimmer.status == \"ChangeLevel\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 37,
+        "text": "Allow window to be opened only if the system is not on vacation mode. ",
+        "policy": "If LivingRoomWindowOpen Then not(Vacation) \nIf BedroomWindowOpen Then not(Vacation) \n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nBedroomWindowOpen = (BedroomWindow.status == \"Open\")\nVacation = (Vacation.status == \"True\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 38,
+        "text": "Allow window to be opened only if user is at home.",
+        "policy": "If LivingRoomWindowOpen Then Home \nIf BedroomWindowOpen Then Home \n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nBedroomWindowOpen = (BedroomWindow.status == \"Open\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Allow Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 39,
+        "text": "Fire sprinkler should only be on when there\u2019s fire detected in the home.",
+        "policy": "If FireSprinklerOn Then FireDetected\n\nFireDetected = (SmokeDetector.status == \"Detected\")\nFireSprinklerOn = (FireSprinkler.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 40,
+        "text": "Deny all http request.",
+        "policy": "If true Then httpRequestOff \n\nhttpRequestOff = (allowHttpRequest() == \"False\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 41,
+        "text": "Deny surveillance camera to get turned off except user is at home.",
+        "policy": "If SurveillanceCameraOff Then Home\n\nHome= (HomeMode.status == \"Home\")\nSurveillanceCameraOff = (SurveillanceCamera.status == \"Off\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 42,
+        "text": "Deny turning on the coffee machine only if the user is not at home.",
+        "policy": "If CoffeeMachineOn Then Home\nCoffeeMachineOn = (CoffeeMachine.status == \"On\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 43,
+        "text": "Deny turning off the refrigerator or TV only if it is requested by energy-saver app.",
+        "policy": "If RefrigeratorOff or TVOff Then not(RequestFromEnergySaverApp) \n\nRefrigeratorOff = (Refrigerator.status == \"Off\")\nTVOff = (TV.status == \"Off\")\nRequestFromEnergySaverApp = (ApplicationName() == \"Energy_Saver_App\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 44,
+        "text": "Deny opening the garage door except it is requested by garage-door-opener app.",
+        "policy": "If GarageDoorOpen Then RequestFromGarageDoorOpenerApp \n\nGarageDoorOpen = (GarageDoor.status == \"Open\")\nRequestFromGarageDoorOpenerApp = (ApplicationName() == \"Garage_Door_Opener_App\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 45,
+        "text": "Deny unlock the front door only if user is not at home or the system is in sleep mode except smoke detector detects smoke within the last 60 sec.",
+        "policy": "If FrontDoorUnlocked Then not(not(Home) or Sleep)\nIf FrontDoorUnlocked Then (timer(SmokeDetected) > 0 and timer(SmokeDetected) < 60)\n\n\nFrontDoorUnlocked = (FrontDoor.status == \"Unlocked\")\nHome = (HomeMode.status == \"Home\")\nSleep = (HomeMode.status == \"Sleep\")\nSmokeDetected = (SmokeDetector.status == \"Detected\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 46,
+        "text": "Deny irrigation to go off only if since moisture sensor sensed wet, it has been dry within 2 days. ",
+        "policy": "If IrrigationSprinklerOn Then not((timer(GardenMoistureSensorDry) > 0 and timer(GardenMoistureSensorDry) < 172800) since GardenMoistureSensorWet)\n\nIrrigationSprinklerOn = (IrrigrationSprinkler.status == \"On\")\nGardenMoistureSensorDry = (GardenMoistureSensor.status == \"Dry\")\nGardenMoistureSensorWet = (GardenMoistureSensor.status == \"Wet\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 47,
+        "text": "Deny turning on TV only if it is after midnight.",
+        "policy": "If TVOn Then not(AfterMidnight)\n\nTVOn = (TV.status == \"On\")\nAfterMidnight = (CurrentTime() > 12am and CurrentTime() < 5am)",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 48,
+        "text": "Deny smoke events from the application \"SmartLight\".",
+        "policy": "If SmokeDetected Then not(SmartLightApp)\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nSmartLightApp = (ApplicationName() == \"SmartLight\")",
+        "category": "Deny Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 49,
+        "text": "Water leak detector can shutdown water valve only if the smoke detector is not sensing smoke. ",
+        "policy": "If WaterValveOff and WaterLeakDetectedOn Then not(SmokeDetected) \n\nWaterValveOff = (WaterValve.status == \"Off\")\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nWaterLeakDetectedOn = (WaterLeakDetector.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 50,
+        "text": "Any lights/windows can be turned on/opened only if the system is not on sleep mode. ",
+        "policy": "If BedroomLightOn or LivingRoomLightOn or BedroomWindowOpen or LivingRoomWindowOpen Then not(Sleep)\n\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nBedroomWindowOpen = (BedroomWindow.status == \"Open\")\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nSleep = (HomeMode.status == \"Sleep\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 51,
+        "text": "Bedroom window/light can be opened/switched on only if the vacation mode is turned off.",
+        "policy": "If BedroomWindowOpen or BedroomLightOn Then not(Vacation) \n\nBedroomWindowOpen = (BedroomWindow.status == \"Open\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nVacation = (Vacation.status == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 52,
+        "text": "AC can be switched on only if the heating is off.",
+        "policy": "If ACOn Then HeaterOff \n\nACOn = (AC.status == \"On\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 53,
+        "text": "Lights/windows can be switched on/opened only if I am at home.",
+        "policy": "If BedroomLightOn or LivingRoomLightOn or BedroomWindowOpen or LivingRoomWindowOpen Then Home\n\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nBedroomWindowOpen = (BedroomWindow.status == \"Open\")\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 54,
+        "text": "Living room window can be opened only if both heater and AC are off.",
+        "policy": "If LivingRoomWindowOpen Then HeaterOff and ACOff \n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nACOff = (AC.status == \"Off\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 55,
+        "text": "In any situation, surveillance camera must remain on. ",
+        "policy": "If true Then SurvellianceCameraOn \n\nSurvellianceCameraOn = (SurvellianceCamera.status == \"On\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 56,
+        "text": "In any situation, front door must remain locked. ",
+        "policy": "If true Then FrontDoorLocked \n\nFrontDoorLocked = (FrontDoor.status == \"Locked\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 57,
+        "text": "The emergency alarming system must be on.",
+        "policy": "If true Then EmergencyAlarmSystemOn \n\nEmergencyAlarmSystemOn  = (EmergencyAlarmSystem.status == \"On\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 58,
+        "text": "The house temperature should not be over 40 Celsius.",
+        "policy": "If true Then TemperatureSensor.status <= 40",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 59,
+        "text": "Never set TV speaker to more than 90db.",
+        "policy": "If true Then TVSpeakerVolume.status <= 90",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 60,
+        "text": "Soil moisture should be within a predefined range.",
+        "policy": "If true Then (SoilMoistureMeter.status > LowerRange() and SoilMoistureMeter.status < UpperRange())",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 61,
+        "text": "The battery level of the devices (switch, humidity sensor, etc.) must not be below a specified threshold.",
+        "policy": "If true Then SwitchBatteryLevel() > Threshold() and HumiditySensorBatteryLevel() > Threshold()",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 62,
+        "text": "The heater and the AC must not be on at the same time.",
+        "policy": "If true Then not(ACOn and HeaterOn)\n\nACOn = (AC.status == \"On\")\nHeaterOn = (Heater.status == \"On\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 63,
+        "text": "The dryer and the humidifier must not be on at the same time.",
+        "policy": "If true Then not(DryerOn and HumidifierOn)\n\nDryerOn = (Dryer.status == \"On\")\nHumidifierOn = (Humidifier.status == \"On\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 64,
+        "text": "Deny dynamic method invocations for http requests.",
+        "policy": "If HttpRequest Then not(DynamicMethodInvocation)\n\nHttpRequest  = (Request.protocol == \"HTTP\")\nDynamicMethodInvocation = (Invocation.method == \"Dynamic\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 65,
+        "text": "The AC and heater must not be on at the same time.",
+        "policy": "If true Then not(ACOn and HeaterOn)\n\nACOn = (AC.status == \"On\")\nHeaterOn = (Heater.status == \"On\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 66,
+        "text": "The refrigerator, alarm, and security system must not be disabled, and their use must not be restricted to save energy.",
+        "policy": "If true Then RefrigeratorOn and AlarmOn and SecuritySystemOn \n\nRefrigeratorOn = (Refrigerator.status == \"On\")\nAlarmOn = (Alarm.status == \"On\")\nSecuritySystemOn = (SecuritySystem.status == \"On\")",
+        "category": "True Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 67,
+        "text": "All electrical appliances should be turned off when smoke is detected. ",
+        "policy": "If SmokeDetected Then RefrigeratorOff and OvenOff and ACOff and HeaterOff\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nRefrigeratorOff = (Refrigerator.status == \"Off\")\nOvenOff = (Oven.status == \"Off\")\nACOff = (AC.status == \"Off\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 68,
+        "text": "All window and blinds should be closed when home mode is away. ",
+        "policy": "If Away Then BedroomWindowClosed and BedroomBlindsClosed and LivingRoomWindowClosed and LivingRoomBlindsClosed\n\nAway = (HomeMode.status == \"Away\")\nBedroomWindowClosed = (BedroomWindow.status == \"Closed\")\nBedroomBlindsClosed = (BedroomBlinds.status == \"Closed\")\nLivingRoomWindowClosed = (LivingRoomWindow.status == \"Closed\")\nLivingRoomBlindsClosed = (LivingRoomBlinds.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 69,
+        "text": "All lights should be on when home mode is vacation.",
+        "policy": "If Vacation Then BedroomLightOn and LivingRoomLightOn and KitchenLightOn\n\nVacation = (Vacation.status == \"True\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nKitchenLightOn = (KitchenLights.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 70,
+        "text": "The water valve must shut off when the water/moisture sensor detects leak and no smoke detected.",
+        "policy": "If LeakDetected and not(SmokeDetected) Then WaterValveOff\n\nLeakDetected = (WaterMoistureSensor.status == \"LeakDetected\")\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nWaterValveOff = (WaterValve.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 71,
+        "text": "When smoke is detected, an SMS/Push message should be sent to the owner.",
+        "policy": "If SmokeDetected Then sendSMS\n\nsendSMS = (sendMessage() == \"True\")\nSmokeDetected = (SmokeDetector.status == \"Detected\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 72,
+        "text": "The sprinkler valve should be ON when detecting smoke.",
+        "policy": "If SmokeDetected Then SprinklerValveOn\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nSprinklerValveOn = (SprinklerValve.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 73,
+        "text": "When there is water leakage, an SMS/Push message should be sent to the owner.",
+        "policy": "If LeakDetected Then sendSMS\n\nsendSMS = (sendMessage() == \"True\")\nLeakDetected = (WaterMoistureSensor.status == \"LeakDetected\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 74,
+        "text": "When smoke is detected, the lights must be turned on in night mode, and the door must be unlocked if someone is at home.",
+        "policy": "If SmokeDetected and Night Then (LivingRoomLightOn and BedroomLightOn and HallwayLightOn)\nIf SmokeDetected and UserPresent Then DoorUnlocked\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nHallwayLightOn = (HallwayLight.status == \"On\")\nUserPresent= (Presence.status == \"Detected\")\nNight = (TimeOfDay.status == \"Night\")\nDoorUnlocked = (Door.status == \"Unlocked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 75,
+        "text": "The alarm must sound when smoke or CO is detected.",
+        "policy": "If CODetected or SmokeDetected Then AlarmOn\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nCODetected = (CODetector.status == \"Detected\")\nAlarmOn = (Alarm.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 76,
+        "text": "The alarm must sound and an SMS/Push message should be sent to the owner, when motion is detected and home mode is away.",
+        "policy": "If MotionDetected and Away Then AlarmOn and sendSMS\n\nsendSMS = (sendMessage() == \"True\")\nMotionDetected = (MotionSensor.status == \"Detected\")\nAway = (HomeMode.status == \"Away\")\nAlarmOn = (Alarm.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 77,
+        "text": "A water valve should be opened when smoke is detected.",
+        "policy": "If SmokeDetected Then WaterValveOpen\n\nWaterValveOpen = (WaterValve.status == \"Open\")\nSmokeDetected = (SmokeDetector.status == \"Detected\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 78,
+        "text": "The AC should be turned off when smoke is detected.",
+        "policy": "If SmokeDetected Then ACOff\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nACOff = (AC.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 79,
+        "text": "The garden sprinkler should be ON when soil moisture is detected to be low.",
+        "policy": "If LowSoilMoisture Then GardenSprinklerOn\n\nLowSoilMoisture = (SoilMoistureMeter.status == \"Low\")\nGardenSprinklerOn = (GardenSpinkler.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 80,
+        "text": "The garden sprinkler should be OFF when soil moisture is detected to be exceeded.",
+        "policy": "If ExceededSoilMoisture Then GardenSprinklerOff\n\nExceededSoilMoisture = (SoilMoistureMeter.status == \"Exceeded\")\nGardenSprinklerOff = (GardenSpinkler.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 81,
+        "text": "A water valve should be closed when a water sensor\u2019s state is wet. ",
+        "policy": "If WaterSensorWet Then WaterValveClosed\n\nWaterSensorWet = (WaterSensor.status == \"Wet\")\nWaterValveClosed = (WaterValve.status == \"Closed\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 82,
+        "text": "The door must be locked when a user is not present at home or sleeping.",
+        "policy": "If not(Home) or Sleep Then DoorLocked\n\nHome = (HomeMode.status == \"Home\")\nSleep = (HomeMode.status == \"Sleep\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 83,
+        "text": "When there is smoke, the lights must be on if it is night, and the door must be unlocked.",
+        "policy": "If SmokeDetected and Night Then BedroomLightOn and HallwayLightOn and LivingRoomLightOn and DoorUnlocked\nIf SmokeDetected and not(Night) Then DoorUnlocked\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nHallwayLightOn = (HallwayLights.status == \"On\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nNight= (TimeOfDay.status == \"Night\")\nDoorUnlocked = (Door.status == \"Unlocked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 84,
+        "text": "The light must be on when the user arrives home.",
+        "policy": "If Home Then LivingRoomLightOn\n\nHome = (HomeMode.status == \"Home\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 85,
+        "text": "The camera controlled doors must be closed when the door is clear of any objects.",
+        "policy": "If DoorClear Then CameraControlledDoorClosed\n\nDoorClear = (DoorPresence.status == \"Clear\")\nCameraControlledDoorClosed = (CameraControlledDoor.status == \"Closed\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 86,
+        "text": "The garage door must be open when people arrive home, and it must be closed when people leave home.",
+        "policy": "If UserInRange Then GarageDoorOpen\nIf not(UserInRange) Then GarageDoorClosed\n\nUserInRange = (LocationMode.status == \"True\")\nGarageDoorOpen = (GarageDoor.status == \"Open\")\nGarageDoorClosed = (GarageDoor.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 87,
+        "text": "The lights must be turned off when the sleep sensor detects a user is sleeping.",
+        "policy": "If SleepSensorDetected Then BedroomLightOff and LivingRoomLightOff and HallwayLightOff\n\nSleepSensorDetected = (SleepSensor.status == \"True\")\nBedroomLightOff = (BedroomLight.status == \"Off\")\nLivingRoomLightOff = (LivingRoomLight.status == \"Off\")\nHallwayLightOff = (HallwayLight.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 88,
+        "text": "The security system must not be disarmed when the user is not at home.",
+        "policy": "If Away Then SecuritySystemOn\n\nAway = (HomeMode.status == \"Away\")\nSecuritySystemOn = (SecuritySystem.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 89,
+        "text": "The AC must be on when a user is within a specified distance of the house or at a time specified by the user.",
+        "policy": "If UserInRange or CurrentTime() == setTime() Then ACOn\n\nUserInRange = (LocationMode.status == \"True\")\nACOn = (AC.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 90,
+        "text": "The security camera must take pictures when there is a motion, and contact/door sensors are active.",
+        "policy": "If MotionDetected and ContactDoorSensorActive Then SecurityCameraTakingPictures\n\nMotionDetected = (MotionSensor.status == \"Detected\")\nContactDoorSensorActive = (ContactDoorSensor.status == \"Active\")\nSecurityCameraTakingPictures = (SecurityCamera.status == \"TakingPictures\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 91,
+        "text": "The security camera must take a photo and sound alarm when the doors/windows are opening, and when the doors are unlocking at user-specified times. It must turn off all alarm when one alarm is turned off.",
+        "policy": "If SecurityCheckTime and DoorOpen Then SecurityCameraTakingPictures and AlarmOn\nIf SecurityCheckTime and WindowOpen Then SecurityCameraTakingPictures and AlarmOn\nIf FrontDoorSecurityAlarmOff or BackDoorSecurityAlarmOff or PorchSecurityAlarmOff Then FrontDoorSecurityAlarmOff and BackDoorSecurityAlarmOff and PorchSecurityAlarmOff\n\nSecurityCameraTakingPictures = (SecurityCamera.status == \"TakingPictures\")\nAlarmOn = (Alarm.status == \"On\")\nDoorOpen = (Door.status == \"Open\")\nWindowOpen = (Window.status == \"Open\")\nSecurityCheckTime = CurrentTime() == UserSpecifiedTime()\nFrontDoorSecurityAlarmOff = (FrontDoorSecurityAlarm.status == \"Off\")\nBackDoorSecurityAlarmOff = (BackDoorSecurityAlarm.status == \"Off\")\nPorchSecurityAlarmOff = (PorchSecurityAlarm.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 92,
+        "text": "The door must not be unlocked when a camera does not recognize an face.",
+        "policy": "If UnauthorizedFace Then DoorLocked\n\nUnauthorizedFace = (FaceRecognitionCamera.status == \"UnrecognizedFace\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 93,
+        "text": "The windows must not be open when the heater is on.",
+        "policy": "If HeaterOn Then WindowsClosed\n\nHeaterOn = (Heater.status == \"On\")\nWindowsClosed = (Windows.status == \"Closed\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 94,
+        "text": "The bell must not chime when the door is open.",
+        "policy": "If DoorOpen Then not(BellChime)\n\nDoorOpen = (Door.status == \"Open\")\nBellChime = (Bell.status == \"Chime\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 95,
+        "text": "The mode must be set to \u201chome\u201d when the user is present at home, and \u201caway\u201d when the user is not present at home.",
+        "policy": "If UserPresent Then Home\nIf not(UserPresent) Then Away\n\nUserPresent = (Presence.status == \"Detected\")\nAway = (HomeMode.status == \"Away\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 96,
+        "text": "The sound system must read (e.g., the day\u2019s weather forecast and the status of the devices) with the user interaction and must not read at the time not specified by the user (guards against violations when the sleeping mode is on and when the user is not home.)",
+        "policy": "If UserInteractionTrue Then SoundSystemReading\nIf Away or Sleep Then not(SoundSystemReading)\n\nUserInteractionTrue = (UserInteraction.status == \"True\")\nSoundSystemReading = (SoundSystem.status == \"Reading\")\nSleep = (HomeMode.status == \"Sleep\")\nAway = (HomeMode.status == \"Away\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 97,
+        "text": "The water valve must shut off when water/moisture sensor detects leak around a location such as basement and laundry room.",
+        "policy": "If LeakDetected Then WaterValveOff\n\nLeakDetected = (WaterLeakDetector.status == \"LeakDetected\")\nWaterValveOff = (WaterValve.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 98,
+        "text": "The bell must not chime when the door is closed.",
+        "policy": "If DoorClosed Then not(BellChime)\n\nDoorClosed = (Door.status == \"Closed\")\nBellChime = (Bell.status == \"Chime\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 99,
+        "text": "The doors and the windows must be locked when the user is not home.",
+        "policy": "If not(Home) Then DoorLocked and WindowLocked\n\nHome = (HomeMode.status == \"Home\")\nDoorLocked = (Door.status == \"Locked\")\nWindowLocked = (Window.status == \"Locked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 100,
+        "text": "The security cameras must be on when the users are not home.",
+        "policy": "If not(Home) Then SecurityCameraOn\n\nHome = (HomeMode.status == \"Home\")\nSecurityCameraOn = (SecurityCamera.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 101,
+        "text": "The electronic devices must be off when fire sprinklers are on.",
+        "policy": "If FireSprinklerOn Then TVOff and LaptopOff and DesktopOff\n\nFireSprinklerOn = (FireSprinkler.status == \"On\")\nTVOff= (TV.status == \"Off\")\nLaptopOff = (Laptop.status == \"Off\")\nDesktopOff = (Desktop.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 102,
+        "text": "The sprinklers must be off when it rains.",
+        "policy": "If Raining Then SprinklersOff\n\nSprinklersOff = (Sprinklers.status == \"Off\")\nRaining = (isRaining.status == \"True\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 103,
+        "text": "The non-emergency sound system must be off when users are sleeping.",
+        "policy": "If Sleep Then TVSpeakerOff and DesktopSpeakerOff and LaptopSpeakerOff\n\nSleep = (HomeMode.status == \"Sleep\")\nTVSpeakerOff = (TVSpeaker.status == \"Off\")\nDesktopSpeakerOff = (DesktopSpeaker.status == \"Off\")\nLaptopSpeakerOff = (LaptopSpeaker.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 104,
+        "text": "The curtains must be closed when private mode is on.",
+        "policy": "If Private Then CurtainsClosed\n\nPrivate = (PrivacyMode.status == \"Private\")\nCurtainsClosed = (Curtains.status == \"Closed\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 105,
+        "text": "The lights must be off while the users are sleeping.",
+        "policy": "If Sleep Then LightOff\n\nSleep = (HomeMode.status == \"Sleep\")\nLightOff = (Light.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 106,
+        "text": "Gas stove should not be on when the user isn\u2019t home.",
+        "policy": "If not(Home) Then GasStoveOff\n\nHome = (HomeMode.status == \"Home\")\nGasStoveOff = (GasStove.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 107,
+        "text": "Gas stove should not be on when smoke is detected.",
+        "policy": "If SmokeDetected Then GasStoveOff\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nGasStoveOff = (GasStove.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 108,
+        "text": "Security camera should be off when the user is home to preserve privacy.",
+        "policy": "If Home Then SecurityCameraOff\n\nHome = (HomeMode.status == \"Home\")\nSecurityCameraOff = (SecurityCamera.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 109,
+        "text": "User should be notified if the door sensor senses the door is open when the user is away.",
+        "policy": "If Away and DoorOpen Then notifyUser\n\nAway = (HomeMode.status == \"Away\")\nDoorOpen = (Door.status == \"Open\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 110,
+        "text": "User should be notified if the contact sensor senses the window is open when the user is away.",
+        "policy": "If Away and WindowOpen Then notifyUser\n\nAway = (HomeMode.status == \"Away\")\nWindowOpen = (Window.status == \"Open\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 111,
+        "text": "Water valve should not be closed if the fire sprinkler is on as a reaction to fire/smoke.",
+        "policy": "If SmokeDetected and FireSprinklerOn Then WaterValveOpen\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nFireSprinklerOn = (FireSprinkler.status == \"On\")\nWaterValveOpen = (WaterValve.status == \"Open\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 112,
+        "text": "Air purifier should not turn off automatically if CO is detected.",
+        "policy": "If CODetected Then AirPurifierOn\n\nAirPurifierOn = (AirPurifier.status == \"On\")\nCODetected = (CODetector.status == \"Detected\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 113,
+        "text": "Window shades should not open when user is not home.",
+        "policy": "If not(Home) Then WindowShadesClosed\n\nHome = (HomeMode.status == \"Home\")\nWindowShadesClosed = (WindowShades.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 114,
+        "text": "User should be prompted before the door is unlocked automatically for any reason, when user is away.",
+        "policy": "If Away and DoorUnlocked Then notifyUser\n\nAway = (HomeMode.status == \"Away\")\nDoorUnlocked = (Door.status == \"Unlocked\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 115,
+        "text": "Door should lock automatically when mode changes from home to away.",
+        "policy": "If Away Then DoorLocked\n\nAway = (HomeMode.status == \"Away\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 116,
+        "text": "Door should be locked when the bedroom sleep monitor detects that user is sleeping to ensure safety.",
+        "policy": "If UserSleeping Then DoorLocked\n\nUserSleeping = (BedroomSleepMonitor.status == \"Detected\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 117,
+        "text": "Garage door should be closed when bedroom\u2019s sleep monitor detects that user is sleeping.",
+        "policy": "If UserSleeping Then GarageDoorClosed\n\nUserSleeping = (BedroomSleepMonitor.status == \"Detected\")\nGarageDoorClosed = (GarageDoor.status == \"Closed\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 118,
+        "text": "Induction cooktop should not be on when user is sleep.",
+        "policy": "If Sleep Then InductionCooktopOff\n\nSleep = (HomeMode.status == \"Sleep\")\nInductionCooktopOff = (InductionCooktop.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 119,
+        "text": "Garage door should be closed when user is not home.",
+        "policy": "If not(Home) Then GarageDoorClosed\n\nHome = (HomeMode.status == \"Home\")\nGarageDoorClosed = (GarageDoor.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 120,
+        "text": "User should be notified when glass break is detected.",
+        "policy": "If GlassBroken Then notifyUser\n\nGlassBroken = (NoiseSensor.status == \"GlassBroken\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 121,
+        "text": "Security alarm should not be off when user isn\u2019t home.",
+        "policy": "If not(Home) Then not(SecurityAlarmOff)\n\nHome = (HomeMode.status == \"Home\")\nSecurityAlarmOff = (SecurityAlarm.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 122,
+        "text": "Turn your lights on when a open/close sensor opens and the space is dark.",
+        "policy": "If DoorSensorOpen and isDark Then LightOn\n\nDoorSensorOpen = (DoorSensor.status == \"Open\")\nisDark = (LuminanceSensor.status == \"Dark\")\nLightOn = (Light.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 123,
+        "text": "Locks a deadbolt or lever lock when a SmartSense Presence tag or smartphone leaves a location.",
+        "policy": "If PresenceTagLeft or SmartphoneLeft Then DeadboltLocked or LevelLockLocked\n\nPresenceTagLeft = (SmartSensePresenceTag.status == \"LeftLocation\")\nSmartphoneLeft = (Smartphone.status == \"LeftLocation\")\nDeadboltLocked = (Deadbolt.status == \"Locked\")\nLevelLockLocked = (LevelLock.status == \"Locked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 124,
+        "text": "Turn your lights on when motion is detected.",
+        "policy": "If MotionDetected Then LightOn\n\nMotionDetected = (MotionSensor.status == \"Detected\")\nLightOn = (Light.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 125,
+        "text": "Get a push notification or text message when water is detected where it doesn\u2019t belong.",
+        "policy": "If WaterLeakDetected Then sendSMS or notifyUser\n\nsendSMS = (sendMessage() == \"True\")\nnotifyUser = (sendNotifications() == \"True\")\nWaterLeakDetected = (WaterLeakSensor.status == \"Detected\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 126,
+        "text": "Turn on the light when motion is sensed.",
+        "policy": "If MotionDetected Then LightOn\n\nMotionDetected = (MotionSensor.status == \"Detected\")\nLightOn = (Light.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 127,
+        "text": "App to control a humidifier based on room occupancy.",
+        "policy": "If PresenceDetected Then HumidifierOn\nIf PresenceNotDetected Then HumidifierOff\n\nPresenceDetected = (Presence.status == \"Detected\")\nPresenceNotDetected = (Presence.status == \"NotDetected\")\nHumidifierOn = (Humidifier.status == \"On\")\nHumidifierOff = (Humidiifer.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 128,
+        "text": "A policy to notify the user when the setCode command of the Front Door Lock is triggered by an HTTP request.",
+        "policy": "If WasInformedByHTTP and FrontDoorLockCodeSet Then notifyUser\n\nWasInformedByHTTP = (EventSource() == \"HTTP\")\nFrontDoorLockCodeSet = (FrontDoorLock.status == \"setCode\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 129,
+        "text": "Balcony light should not be ON during the day.",
+        "policy": "If DayTime Then BalconyLightOff\n\nDayTime = (isDay.status == \"True\")\nBalconyLightOff = (BalconyLight.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 130,
+        "text": "Rice cooker cannot work when there is no one at home.",
+        "policy": "If Away Then RiceCookerOff\n\nAway = (HomeMode.status == \"Away\")\nRiceCookerOff = (RiceCooker.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 131,
+        "text": "The lamp should be OFF when there is no one around.",
+        "policy": "If not(PresenceDetected) Then LampOff\n\nPresenceDetected = (Presence.status == \"Detected\")\nLampOff = (Lamp.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 132,
+        "text": "When no one is present, the curling iron should not be turned on.",
+        "policy": "If not(PresenceDetected) Then CurlingIronOff\n\nPresenceDetected = (Presence.status == \"Detected\")\nCurlingIronOff = (CurlingIron.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 133,
+        "text": "When the door is closed, the bell should not chime.",
+        "policy": "If DoorClosed Then not(BellChime)\n\nDoorClosed = (Door.status == \"Closed\")\nBellChime = (Bell.status == \"Chime\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 134,
+        "text": "When motion is detected, the siren should be activated.",
+        "policy": "If MotionDetected Then SirenActivated\n\nMotionDetected = (MotionSensor.status == \"Detected\")\nSirenActivated = (Siren.status == \"Activated\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 135,
+        "text": "Change your thermostat settings automatically in response to a mode change.",
+        "policy": "If Home Then ThermostatCooling\nIf Away Then ThermostatOff\nIf Sleep Then ThermostatHeating\n\nAway = (HomeMode.status == \"Away\")\nHome = (HomeMode.status == \"Home\")\nSleep = (HomeMode.status == \"Sleep\")\nThermostatCooling = (Thermostat.status == \"Cooling\")\nThermostatOff = (Thermostat.status == \"Off\")\nThermostatHeating = (Thermostat.status == \"Heating\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 136,
+        "text": "When no one is present, locationMode should be Away.",
+        "policy": "If not(PresenceDetected) Then LocationModeAway\n\nPresenceDetected = (Presence.status == \"Detected\")\nLocationModeAway = (LocationMode.status == \"Away\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 137,
+        "text": "When someone is present, locationMode should be Home.",
+        "policy": "If PresenceDetected Then LocationModeHome\n\nPresenceDetected = (Presence.status == \"Detected\")\nLocationModeHome = (LocationMode.status == \"Home\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 138,
+        "text": "When the user is not present or sleeping, the door should not be unlocked.",
+        "policy": "If not(UserPresent) or Sleep Then DoorLocked\n\nUserPresent = (Presence.status == \"Detected\")\nSleep = (HomeMode.status == \"Sleep\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 139,
+        "text": "The light must be on when the user arrives home if it is night.",
+        "policy": "If Home and Night Then LightOn\n\nHome = (HomeMode.status == \"Home\")\nNight = (TimeOfDay.status == \"Night\")\nLightOn= (Light.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 140,
+        "text": "Speakers never on when I sleep.",
+        "policy": "If Sleep Then SpeakersOff\n\nSleep = (HomeMode.status == \"Sleep\")\nSpeakersOff = (Speakers.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 141,
+        "text": "When smoke is detected, the water valve should not be closed.",
+        "policy": "If SmokeDetected Then not(WaterValveClosed)\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nWaterValveClosed = (WaterValve.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 142,
+        "text": "When the user is not at home, the security system should not be disarmed.",
+        "policy": "If not(UserPresent) Then not(SecuritySystemDisarmed)\n\nUserPresent = (Presence.status == \"Detected\")\nSecuritySystemDisarmed = (SecuritySytem.status == \"Disarmed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 143,
+        "text": "When a camera does not recognize a face, the door should not be unlocked.",
+        "policy": "If UnauthorizedFace Then DoorLocked\n\nUnauthorizedFace = (FaceRecognitionCamera.status == \"UnrecognizedFace\")\nDoorLocked = (Door.status == \"Locked\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 144,
+        "text": "When the moisture sensor detects a leak, the water valve should be closed.",
+        "policy": "If LeakDetected Then WaterValveClosed\n\nLeakDetected = (MoistureSensor.status == \"LeakDetected\")\nWaterValveClosed = (WaterValve.status == \"Closed\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 145,
+        "text": "When the heater is on, the windows should not be open.",
+        "policy": "If HeaterOn Then not(WindowOpen)\n\nHeaterOn = (Heater.status == \"On\")\nWindowOpen = (Window.status == \"Open\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 146,
+        "text": "When the user is not present, the brewing functionality of coffee machine should not be activated.",
+        "policy": "If not(UserPresent) Then not(CoffeeMachineBrewing)\n\nUserPresent = (Presence.status == \"Detected\")\nCoffeeMachineBrewing = (CoffeeMachine.status == \"Brewing\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 147,
+        "text": "When the user is not present, the heating functionality of electronic blanket should not be activated.",
+        "policy": "If not(UserPresent) Then ElectronicBlanketDeactivated\n\nUserPresent = (Presence.status == \"Detected\")\nElectronicBlanketDeactivated = (ElectronicBlanket.status == \"Deactivated\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 148,
+        "text": "When the smoke is detected, the alarm should sound.",
+        "policy": "If SmokeDetected Then AlarmOn\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nAlarmOn= (Alarm.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 149,
+        "text": "When the user arrives home, the garage door should be open.",
+        "policy": "If UserInRange Then GarageDoorOpen\n\nUserInRange = (LocationMode.status == \"True\")\nGarageDoorOpen = (GarageDoor.status == \"Open\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 150,
+        "text": "When the user leaves home, the garage door should be closed.",
+        "policy": "If not(InRange) Then GarageDoorClosed\n\nInRange = (LocationMode.status == \"InRange\")\nGarageDoorClosed = (GarageDoor.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 151,
+        "text": "When locationMode is Away, the light should not be on.",
+        "policy": "If LocationAway Then LightOff\n\nLocationAway = (LocationMode.status == \"Away\")\nLightOff = (Light.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 152,
+        "text": "When no intruder is detected, the siren should not be activated.",
+        "policy": "If not(IntruderDetected) Then not(SirenActivated)\n\nIntruderDetected = (Intruder.status == \"Detected\")\nSirenActivated = (Siren.status == \"Activated\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 153,
+        "text": "When an intruder is detected, the siren should be activated.",
+        "policy": "If IntruderDetected Then SirenActivated\n\nIntruderDetected = (Intruder.status == \"Detected\")\nSirenActivated = (Siren.status == \"Activated\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 154,
+        "text": "When no one is at home, the oven should not be on the status of grilling.",
+        "policy": "If Away Then not(OvenGrilling)\n\nAway = (HomeMode.status == \"Away\")\nOvenGrilling = (Oven.status == \"Grilling\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 155,
+        "text": "When no one is at home, the electric blanket should not be turned on.",
+        "policy": "If Away Then ElectricBlanketOff\n\nAway = (HomeMode.status == \"Away\")\nElectricBlanketOff = (ElectricBlanket.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 156,
+        "text": "When there is a motion, the security camera should be turned on.",
+        "policy": "If MotionDetected Then SecurityCameraOn\n\nMotionDetected = (MotionSensor.status == \"Detected\")\nSecurityCameraOn = (SecurityCamera.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 157,
+        "text": "The alarm must sound when there is smoke or CO; and when an unexpected motion, tampering, and entering occurs.",
+        "policy": "If SmokeDetected or CODetected Then AlarmOn\nIf MotionDetected or DoorOpen or Home Then AlarmOn\n\nSmokeDetected = (SmokeDetector.status == \"Detected\")\nCODetected = (CODetector.status == \"Detected\")\nMotionDetected = (MotionSensor.status == \"Detected\")\nAlarmOn = (Alarm.status == \"On\")\nDoorOpen = (Door.status == \"Open\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 158,
+        "text": "The devices (e.g., light switches, music player, cleaning supply cabinets, medicine drawers, or gun cases) must not be open or turned on when the user is not at home or sleeping.",
+        "policy": "If Sleep or Away Then LightSwitchesOff and MusicPlayerOff and CleaningSupplyCabinetsClosed and MedicineDrawerClosed and GunCasesClosed\n\nAway = (HomeMode.status == \"Away\")\nSleep = (HomeMode.status == \"Sleep\")\nLightSwitchesOff = (LightSwitches.status == \"Off\")\nMusicPlayerOff = (MusicPlayer.status == \"Off\")\nCleaningSupplyCabinetsClosed = (CleaningSupplyCabinets.status == \"Closed\")\nMedicineDrawerClosed = (MedicineDrawers.status == \"Closed\")\nGunCasesClosed = (GunCases.status == \"Closed\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 159,
+        "text": "Some device functionality (e.g., coffee machine starting brewing, heating up dinner in a crock-pot, turning on AC and heater) must not be used when the user is not at home or must be turned off before a time specified by a user.",
+        "policy": "If not(Home) or BeforeUserSetTime Then CoffeeMachineOff and CrockPotOff and ACOff and HeaterOff\n\nHome = (HomeMode.status == \"Home\")\nBeforeUserSetTime = (CurrentTime() < \"UserSpecifiedTime\")\nCoffeeMachineOff = (CoffeeMachine.status == \"Off\")\nCrockPotOff = (CrockPot.status == \"Off\")\nACOff = (AC.status == \"Off\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 160,
+        "text": "The alarm must go off when the main door is left open for too long (specified by the user).",
+        "policy": "If timer(MainDoorOpen) > UserSpecifiedTime() Then AlarmOn\n\nMainDoorOpen = (MainDoor.status == \"Open\")\nAlarmOn = (Alarm.status == \"On\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 161,
+        "text": "When the Floor lamp is turned on if motion is detected, it is midnight, and the lamp lasts over 10 minutes then turn on the burglar alarm.",
+        "policy": "If timer(FloorLampOn) > 600 and MotionDetected and Midnight Then BurglerAlarmOn\n\nFloorLampOn = (FloorLamp.status == \"On\")\nMotionDetected = (MotionSensor.status == \"Detected\")\nMidnight = (CurrentTime() == 12am)\nBurglerAlarmOn = (BurglerAlarm.status == \"On\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 162,
+        "text": "Turn lights off when no motion and presence is detected for a set period of time.",
+        "policy": "If timer(MotionNotDetected) >= UserSpecifiedTime() and timer(PresenceNotDetected) >= UserSpecifiedTime() Then LightOff\n\nMotionNotDetected = (MotionSensor.status == \"NotDetected\")\nPresenceNotDetected = (Presence.status == \"NotDetected\")\nLightOff = (Light.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 163,
+        "text": "Turn your lights off after a period of no motion being observed.",
+        "policy": "If timer(MotionNotDetected) >= UserSpecifiedTime() Then LightOff\n\nMotionNotDetected = (MotionSensor.status == \"NotDetected\")\nLightOff = (Light.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 164,
+        "text": "Open the window when a related room\u2019s temperature is detected above the threshold and there is people home.",
+        "policy": "If TemperatureSensor.status > Threshold() and PresenceDetected Then WindowOpen\n\nPresenceDetected = (Presence.status == \"Detected\")\nWindowOpen = (Window.status == \"Open\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 165,
+        "text": "Turn off the humidifier, if a related room\u2019s humidity exceeds the threshold. ",
+        "policy": "If HumiditySensor.status > Threshold() Then HumidifierOff \n\nHumidifierOff = (Humidifier.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 166,
+        "text": "Turn on all air purifiers when air quality is below a threshold.",
+        "policy": "If AirQuality() < Threshold() Then AirPurifierOn \n\nAirPurifierOn = (AirPurifier.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 167,
+        "text": "Temperature should not exceed up-threshold when people are at home. ",
+        "policy": "If UserAtHome Then not(TemperatureSensor.status > TemperatureThreshold())\n\nUserAtHome = (UserPresenceDetector.status == \"Detected\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 168,
+        "text": "Turn on the vent when temperature is detected to above the threshold. ",
+        "policy": "If TemperatureSensor.status > Threshold() Then VentOn \n\nVentOn = (Vent.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 169,
+        "text": "An AC is turned to heating when temperature is detected to be below the lower threshold.",
+        "policy": "If TemperatureSensor.status < LowerThreshold() Then ThermostatHeating\n\nThermostatHeating = (Thermostat.status == \"Heating\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 170,
+        "text": "The AC should be turned to cooling if temperature exceeds the upper threshold. ",
+        "policy": "If TemperatureSensor.status > UpperThreshold() Then ThermostatCooling\n\nThermostatCooling = (Thermostat.status == \"Cooling\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 171,
+        "text": "An humidifier is turned ON when humidity is detected to below the threshold. ",
+        "policy": "If HumiditySensor.status < Threshold() Then HumidifierOn \n\nHumidifierOn = (Humidifier.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 172,
+        "text": "An vent is turned ON when humidity is detected to above the threshold. ",
+        "policy": "If HumiditySensor.status > Threshold() Then VentOn \n\nVentOn = (Vent.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 173,
+        "text": "An air purifier is turned ON when air quality is below a threshold.",
+        "policy": "If AirQualitySensor.status < Threshold() Then AirPurifierOn \n\nAirPurifierOn = (AirPurifier.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 174,
+        "text": "Turn off the valve, if the water level exceeds the threshold. ",
+        "policy": "If WaterLevelSensor.status > Threshold() Then ValveOff \n\nValveOff = (Valve.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 175,
+        "text": "Turn on the valve, if the water level is below the threshold. ",
+        "policy": "If WaterLevelSensor.status < Threshold() Then ValveOn \n\nValveOn = (Valve.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 176,
+        "text": "The heater should be turned off when temperature is above a threshold and no one is at home.",
+        "policy": "If TemperatureSensor.status > TemperatureThreshold() and not(UserPresent) Then HeaterOff \n\nUserPresent= (Presence.status == \"Detected\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 177,
+        "text": "The valve must be closed when water sensor is wet and when the water level threshold specified by a user is reached.",
+        "policy": "If WaterSensorWet and WaterLevelSensor.status >= Threshold() Then WaterValveClosed\n\nWaterSensorWet = (WaterSensor.status == \"Wet\")\nWaterValveClosed = (WaterValve.status == \"Closed\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 178,
+        "text": "The HVACs, fans, switches, heaters, dehumidifiers must be off when the humidity and temperature values are out of the threshold specified by the user (e.g., a particular degree above/below the threshold of temperature and humidity).",
+        "policy": "If (TemperatureSensor.status < LowerThreshold() or TemperatureSensor.status > UpperThreshold()) Then HVACsOff and FansOff and SwitchesOff and HeatersOff\nIf (HumitidtySensor.status < LowerThreshold() or HumiditySensor.status > UpperThreshold()) Then HVACsOff and SwitchesOff and DehumidifiersOff\n\nHVACsOff = (HVACs.status == \"Off\")\nFansOff = (Fans.status == \"Off\")\nSwitchesOff = (Switches.status == \"Off\")\nHeatersOff = (Heaters.status == \"Off\")\nDehumidifiersOff = (Dehumidifiers.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 179,
+        "text": "The sprinkler system must not be on when it rains, and when the soil moisture below a threshold defined by a user. Flood sensor must activate the alarm when there is water.",
+        "policy": "If Raining and SoilMoistureMeter.status < Threshold() Then SprinklerSystemOff\nIf FloodDetected Then AlarmOn \n\nRaining = (isRaining.status == \"True\")\nSprinklerSystemOff = (SprinklerSystem.status == \"Off\")\nFloodDetected = (FloodSensor.status == \"Detected\")\nAlarmOn = (Alarm.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 180,
+        "text": "When the energy meter\u2019s reading exceeds a threshold then turn off the air conditioner.",
+        "policy": "If EnergyMeter.status > Threshold() Then ACOff\n\nACOff = (AC.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 181,
+        "text": "Temperature control application opens windows when the temperature is higher than a pre-defined threshold and a presence sensor must detect a person being at home before the temperature control application can open the window. ",
+        "policy": "If TemperatureSensor.status >= Threshold() and PresenceDetected Then WindowOpen\n\nPresenceDetected = (Presence.status == \"Detected\")\nWindowOpen = (Window.status == \"Open\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 182,
+        "text": "When the humidity reaches a specified level, activate one or more vent fans.",
+        "policy": "If HumiditySensor.status >= Threshold() Then VentsOn\n\nVentsOn = (Vents.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 183,
+        "text": "At everyday noon, the water temperature should not be below a predefined value.",
+        "policy": "If Noon Then WaterTemperatureSensor.status > Threshold()\n\nNoon =  (TimeOfDay.status == \"Noon\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 184,
+        "text": "When the energy price is greater then a predefined level, some plugs should not be turned on.",
+        "policy": "If EnergyPrice.status > Threshold() Then BathroomPlugsOff and PorchPlugsOff\n\nBathroomPlugsOff = (BathroomPlugs.status == \"Off\")\nPorchPlugsOff = (PorchPlugs.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 185,
+        "text": "When CO is greater than a predefined level, the alarm should be turned on.",
+        "policy": "If COSensor.status > Threshold() Then AlarmOn\n\nAlarmOn= (AlarmOn.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 186,
+        "text": "When CO is greater than a predefined level, the natural gas hot water heater should not be turned on.",
+        "policy": "If COSensor.status > Threshold() Then not(GasWaterHeaterOn)\n\nGasWaterHeaterOn = (Natural_Gas_Hot_Water_Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 187,
+        "text": "When CO is greater than a predefined level, the gas valve should not be turned on.",
+        "policy": "If COSensor.status > Threshold() Then not(GasValveOn)\n\nGasValveOn = (GasValve.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 188,
+        "text": "When the temperature is below a predefined value and no one is present, the heater should not be turned on.",
+        "policy": "If TemperatureSensor.status < Threshold() and not(PresenceDetected) Then not(HeaterOn)\n\nPresenceDetected = (Presence.status == \"Detected\")\nHeaterOn = (Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 189,
+        "text": "When the temperature is below a predefined value and someone is present, the heater should be turned on.",
+        "policy": "If TemperatureSensor.status < Threshold() and PresenceDetected Then HeaterOn\n\nPresenceDetected = (Presence.status == \"Detected\")\nHeaterOn = (Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 190,
+        "text": "When the temperature exceeds a predefined value, the heater should not be turned on.",
+        "policy": "If TemperatureSensor.status > Threshold() Then not(HeaterOn)\n\nHeaterOn = (Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 191,
+        "text": "When the humidity is greater than a predefined value, the humidifier should not be turned on.",
+        "policy": "If HumiditySensor.status > Threshold() Then not(HumidifierOn)\n\nHumidifierOn = (Humidifier.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 192,
+        "text": "When the electric power is greater than a predefined value, the oven and heater should not be turned on at the same time.",
+        "policy": "If ElectricPowerMeter.status > Threshold() Then not(OvenOn and HeaterOn)\n\nOvenOn = (Oven.status == \"On\")\nHeaterOn = (Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 193,
+        "text": "The location beacon must be inside a geo-fence around the home (defined by a user) to turn on the lights and open the garage door.",
+        "policy": "If GarageDoorOpen and LightOn Then LocationBeaconInGeoFence\n\nGarageDoorOpen = (GarageDoor.status == \"Open\")\nLightOn = (Light.status == \"On\")\nLocationBeaconInGeoFence = (LocationBeacon.status <= GeoFenceThreshold())",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 194,
+        "text": "Temperature should be within a predefined range when people are at home. ",
+        "policy": "If UserPresent Then (TemperatureSensor.status > LowerRange() and TemperatureSensor.status < UpperRange())\n\nUserPresent= (Presence.status == \"Detected\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 195,
+        "text": "If the thermostat is in heating mode then the temperature sensor's status should be within heating range. If the thermostat is in cooling mode the temperature sensor's status should be within cooling range.",
+        "policy": "If ThermostatHeating Then (TemperatureSensor.status > LowerRangeHeating() and TemperatureSensor.status < TopRangeHeating())\nIf ThermostatCooling Then (TemperatureSensor.status > LowerRangeCooling() and TemperatureSensor.status < TopRangeCooling())\n\nThermostatHeating = (Thermostat.status == \"Heating\")\nThermostatCooling = (Thermostat.status == \"Cooling\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 196,
+        "text": "The temperature must be set to the operating mode values as defined by the user (heat mode and cool mode are separate) when there is motion;\nwhen there is no motion the idle temp (energy savings) must be set as defined by the user (heat mode and cool mode are separate).",
+        "policy": "If MotionDetected and ThermostatHeating Then (TemperatureSensor.status > LowerRangeWarm() and TemperatureSensor.status < TopRangeWarm())\nIf MotionDetected and ThermostatCooling Then (TemperatureSensor.status > LowerRangeCool() and TemperatureSensor.status < TopRangeCool())\n\nIf not(MotionDetected) and ThermostatHeating Then (TemperatureSensor.status > LowerRangeWarm() and TemperatureSensor.status < TopRangeWarm())\nIf not(MotionDetected) and ThermostatCooling Then (TemperatureSensor.status > LowerRangeCool() and TemperatureSensor.status < TopRangeCool())\n\nMotionDetected = (MotionSensor.status == \"Detected\")\nThermostatHeating = (Thermostat.status == \"Heating\")\nThermostatCooling = (Thermostat.status == \"Cooling\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 197,
+        "text": "When CO2 is greater than 1000ppm, the fan should be turned on.",
+        "policy": "If CO2Sensor.status > 1000 Then FanOn\n\nFanOn = (Fan.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 198,
+        "text": "Room 1 temperature should never be > 25 Celsius when someone is in the room.",
+        "policy": "If PresenceDetected Then TemperatureSensor.status <= 25\n\nPresenceDetected = (Presence.status == \"Detected\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 199,
+        "text": "When the TV is turned on if the temperature is over 30\u25e6C then open the window.",
+        "policy": "If TVOn and TemperatureSensor.status > 30 Then WindowOpen\n\nTVOn = (TV.status == \"On\")\nWindowOpen = (Window.status == \"Open\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 200,
+        "text": "When the motion sensor detects a motion at the front door if the temperature is above 30\u25e6C then turn on the air conditioner.",
+        "policy": "If HallwayMotionDetected and TemperatureSensor.status > 30 Then ACOn\n\nHallwayMotionDetected = (HallwayMotionSensor.status == \"Detected\")\nACOn = (AC.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 201,
+        "text": "When the illuminance is above 50 LUX then turn off the lights.",
+        "policy": "If IlluminanceSensor.status > 50 Then LightOff\n\nLightOff = (Light.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 202,
+        "text": "When the Floor lamp is turned on if home mode is set to \"sleep\" then turn off floor lamp after 5 minutes.",
+        "policy": "If (timer(FloorLampOn) >= 300) and Sleep Then FloorLampOff\n\nFloorLampOn = (FloorLamp.status == \"On\")\nSleep = (HomeMode.status == \"Sleep\")\nFloorLampOff = (FloorLamp.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 203,
+        "text": "When the indoor illuminance is greater than 600lux, the light should not be turned on.",
+        "policy": "If IndoorIlluminanceSensor.status > 600 Then not(LightOn)\n\nLightOn = (Light.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 204,
+        "text": "When the indoor illuminance is less than 80lux in daytime, the light should not be turned off.",
+        "policy": "If IndoorIlluminanceSensor.status < 80 and DayTime Then not(LightOff)\n\nDayTime =  (TimeOfDay.status == \"DayTime\")\nLightOff = (Light.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 205,
+        "text": "Turn on lamp if presence detected. Otherwise lamp should be turned off.",
+        "policy": "If PresenceDetected Then LampOn\nIf not(PresenceDetected) Then LampOff\n\nPresenceDetected = (Presence.status == \"Detected\")\nLampOn = (Lamp.status == \"On\")\nLampOff = (Lamp.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 206,
+        "text": "When the illuminance is below 30 LUX then turn on the lights.",
+        "policy": "If IlluminanceSensor.status < 30 Then LightOn\n\nLightOn = (Light.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 207,
+        "text": "If M1(active) when Mode(home), then P3(on).",
+        "policy": "If M1Active and Home Then P3On\n\nM1Active = (M1.status == \"Active\")\nHome = (HomeMode.status == \"Home\")\nP3On = (P3.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 208,
+        "text": "If M2(active) when Mode(home), then P4(on).",
+        "policy": "If M2Active and Home Then P4On\n\nM2Active = (M2.status == \"Active\")\nHome = (HomeMode.status == \"Home\")\nP4On = (P4.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 209,
+        "text": "If MS1(active), then L1(on) and L2(on).",
+        "policy": "If MS1Active Then L1On and L2On\n\nMS1Active = (MS1.status == \"Active\")\nL1On = (L1.status == \"On\")\nL2On = (L2.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 210,
+        "text": "If MS2(active), then L3(on).",
+        "policy": "If MS2Active Then L3On\n\nMS2Active = (MS2.status == \"Active\")\nL3On = (L3.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 211,
+        "text": "If MS4(active), then L5(on).",
+        "policy": "If MS4Active Then L5On\n\nMS4Active = (MS4.status == \"Active\")\nL5On = (L5.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 213,
+        "text": "If B(held), then turn off all L and P and Mode(night).",
+        "policy": "If BHeld Then LOff and POff and Night\n\nBHeld = (B.status == \"Held\")\nLOff = (L.status == \"Off\")\nPOff = (P.status == \"Off\")\nNight = (TimeOfDay.status == \"Night\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 214,
+        "text": "If B(double pressed), turn on P3 and P4 and Mode(home).",
+        "policy": "If BDoublePressed Then P3On and P4On and Home\n\nBDoublePressed = (B.status == \"DoublePressed\")\nP3On = (P3.status == \"On\")\nP4On = (P4.status == \"On\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 215,
+        "text": "If A(CO2 \u2265 950), then P2(on).",
+        "policy": "If ACO2.status >= 950 Then P2On\n\nP2On = (P2.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 216,
+        "text": "If A(CO2 \u2264 950), then P2(off).",
+        "policy": "If ACO2.status <= 950 Then P2Off\n\nP2Off = (P2.status == \"Off\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 217,
+        "text": "If PS1 and PS2 (away), then turn off all L and P and Mode(away).",
+        "policy": "If PS1Away and PS2Away Then LOff and POff and Away\n\nPS1Away = (PS1.status == \"Away\")\nPS2Away = (PS2.status == \"Away\")\nLOff = (L.status == \"Off\")\nPOff = (P.status == \"Off\")\nAway = (HomeMode.status == \"Away\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 218,
+        "text": "If PS1 or PS2 (present), then turn on L1, L2, and P1 and Mode(home).",
+        "policy": "If PS1Present or PS2Present Then L1On and L2On and P1On and Home\n\nPS1Present = (PS1.status == \"Present\")\nPS2Present = (PS2.status == \"Present\")\nL1On = (L1.status == \"On\")\nL2On = (L2.status == \"On\")\nP1On = (P1.status == \"On\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 219,
+        "text": "If MS2(active), then P1(on) and L1(on).",
+        "policy": "If MS2Active Then P1On and L1On\n\nMS2Active = (MS2.status == \"Active\")\nP1On = (P1.status == \"On\")\nL1On = (L1.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 220,
+        "text": "If MS3(active), then L4(on).",
+        "policy": "If MS3Active Then L4On\n\nMS3Active = (MS3.status == \"Active\")\nL4On = (L4.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 221,
+        "text": "If W(wet) or MS3(humidity\u226555), then V(on).",
+        "policy": "If WWet or MS3HumiditySensor.status >= 55 Then VOn\n\nWWet = (W.status == \"Wet\")\nVOn = (V.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 222,
+        "text": "If PS1(present) or PS2(present), then turn on L1, L2, L5, P1.",
+        "policy": "If PS1Present or PS2Present Then L1On and L2On and L5On and P1On\n\nPS1Present = (PS1.status == \"Present\")\nPS2Present = (PS2.status == \"Present\")\nL1On = (L1.status == \"On\")\nL2On = (L2.status == \"On\")\nL5On = (L5.status == \"On\")\nP1On = (P1.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 223,
+        "text": "If PS1(away) and PS2(away), then turn off L1, L2, L3, L4, L5, V, P1.",
+        "policy": "If PS1Away and PS2Away Then L1Off and L2Off and L3Off and L4Off and L5Off and VOff and P1Off\n\nPS1Away = (PS1.status == \"Away\")\nPS2Away = (PS2.status == \"Away\")\nL1Off = (L1.status == \"Off\")\nL2Off = (L2.status == \"Off\")\nL3Off = (L3.status == \"Off\")\nL4Off = (L4.status == \"Off\")\nL5Off = (L5.status == \"Off\")\nVOff = (V.status == \"Off\")\nP1Off = (P1.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 225,
+        "text": "If B(held), then turn off all L and P.",
+        "policy": "If BHeld Then LOff and POff\n\nBHeld = (B.status == \"Held\")\nLOff = (L.status == \"Off\")\nPOff = (P.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 226,
+        "text": "If B(double pressed), turn on L1 and L5 and P1.",
+        "policy": "If BDoublePressed Then L1On and L5On and P1On\n\nBDoublePressed = (B.status == \"DoublePressed\")\nL1On = (L1.status == \"On\")\nL5On = (L5.status == \"On\")\nP1On = (P1.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 227,
+        "text": "If MS1(active) and Mode(home), then L1(on).",
+        "policy": "If M1Active and Home Then L1On\n\nM1Active = (M1.status == \"Active\")\nHome = (HomeMode.status == \"Home\")\nL1On = (L1.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 229,
+        "text": "If B(held), then L1(off) and Mode(night).",
+        "policy": "If BHeld Then L1Off and Night\n\nBHeld = (B.status == \"Held\")\nL1Off = (L1.status == \"Off\")\nNight = (TImeOfDay.status == \"Night\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 230,
+        "text": "If B(double pressed), then L1(on) Mode(home).",
+        "policy": "If BDoublePressed Then L1On and Home\n\nBDoublePressed = (B.status == \"DoublePressed\")\nL1On = (L1.status == \"On\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 231,
+        "text": "If PS(away), then L1(off), P1(off), and Mode(away).",
+        "policy": "If PSAway Then L1Off and P1Off and Away\n\nPSAway = (PS.status == \"Away\")\nL1Off = (L1.status == \"Off\")\nP1Off = (P1.status == \"Off\")\nAway = (HomeMode.status == \"Away\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 232,
+        "text": "If PS(present), then L1(on), P1(on), and Mode(home).",
+        "policy": "If PSPresent Then L1On and P1On and Home\n\nPSPresent = (PS.status == \"Present\")\nL1On = (L1.status == \"On\")\nP1On = (P1.status == \"On\")\nHome = (HomeMode.status == \"Home\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 233,
+        "text": "If PS(away), then P1(off) and P2(off).",
+        "policy": "If PSAway Then P1Off and P2Off\n\nPSAway = (PS.status == \"Away\")\nP1Off = (P1.status == \"Off\")\nP2Off = (P2.status == \"Off\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 234,
+        "text": "If PS(present) then P1(on), P2(on).",
+        "policy": "If PSPresent Then P1On and P2On\n\nPSPresent = (PS.status == \"Present\")\nP1On = (P1.status == \"On\")\nP2On = (P2.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 237,
+        "text": "If MS1(inactive) for 15 minutes, then L1(off) and L2(off).",
+        "policy": "If timer(MS1Inactive) >= 900 Then L1Off and L2Off\n\nMS1Inactive = (MS1.status == \"Inactive\")\nL1Off = (L1.status == \"Off\")\nL2Off = (L2.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 238,
+        "text": "If MS2(inactive) for 10 minutes, then L3(off).",
+        "policy": "If timer(MS2Inactive) >= 600 Then L3Off\n\nMS2Inactive = (M2.status == \"Inactive\")\nL3Off = (L3.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 239,
+        "text": "If MS3(inactive) for 5 minutes, then L4(off).",
+        "policy": "If timer(MS3Inactive) >= 300 Then L4Off\n\nMS3Inactive = (MS3.status == \"Inactive\")\nL4Off = (L4.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 240,
+        "text": "If MS4(inactive) for 15 minutes, then L5(off).",
+        "policy": "If timer(MS4Inactive) > 900 Then L5Off\n\nMS4Inactive = (MS4.status == \"Inactive\")\nL5Off = (L5.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 241,
+        "text": "If MS2(inactive) for 30 minutes, then P1(off), L1(off), L2(off), L3(off).",
+        "policy": "If timer(MS2Inactive) >= 1800 Then P1Off and L1Off and L2Off and L3Off\n\nMS2Inactive = (MS2.status == \"Inactive\")\nP1Off = (P1.status == \"Off\")\nL1Off = (L1.status == \"Off\")\nL2Off = (L2.status == \"Off\")\nL3Off = (L3.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 242,
+        "text": "If MS3(inactive) for 10 minutes, then L4(off).",
+        "policy": "If timer(MS3Inactive) >= 600 Then L4Off\n\nMS3Inactive = (MS3.status == \"Inactive\")\nL4Off = (L4.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 243,
+        "text": "If V(on) for 15 minutes, then V(off).",
+        "policy": "If timer(VOn) >= 900 Then VOff\n\nVOn = (V.status == \"On\")\nVOff = (V.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 244,
+        "text": "If MS1(inactive) for 60 minutes, then L1(off).",
+        "policy": "If timer(MS1Inactive) >= 3600 Then L1Off\n\nMS1Inactive = (MS1.status == \"Inactive\")\nL1Off = (L1.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 245,
+        "text": "When front door (MU1) is opened, turn on light (SL1).",
+        "policy": "If MU1FrontDoorOpen Then SL1LightOn\n\nMU1FrontDoorOpen = (MU1FrontDoor.status == \"Open\")\nSL1LightOn = (SL1Light.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 246,
+        "text": "When presence (PR1) becomes present, if time is before 12am, turn on coffee machine (OL1).",
+        "policy": "If PR1PresencePresent and CurrentTime() < 12am Then OL1CoffeeMachineOn\n\nPR1PresencePresent = (Presence.status == \"Present\")\nOL1CoffeeMachineOn = (CoffeeMachine.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 247,
+        "text": "When motion (MO1) detected, if temperature (MU1) is below 70\u25e6F, turn on heater (OL2).",
+        "policy": "If MO1MotionDetected and MU1TemperatureSensor.status < 70 Then OL2HeaterOn\n\nMO1MotionDetected = (MO1MotionSensor.status == \"Detected\")\nOL2HeaterOn = (OL2Heater.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 248,
+        "text": "When door (MU1) is open, if no presence (PR2\u223c5), send a message.",
+        "policy": "If MU1DoorOpen and PR2PresenceNotDetected and PR3PresenceNotDetected and PR4PresenceNotDetected and PR5PresenceNotDetected Then messageSent\n\nMU1DoorOpen = (MU1Door.status == \"Open\")\nPR2PresenceNotDetected = (PR2Presence.status == \"NotDetected\")\nPR3PresenceNotDetected = (PR3Presence.status == \"NotDetected\")\nPR4PresenceNotDetected = (PR4Presence.status == \"NotDetected\")\nPR5PresenceNotDetected = (PR5Presence.status == \"NotDetected\")\nmessageSent = (MsgSender.status == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 249,
+        "text": "When door is opened (MU2), turn on light (SL2).",
+        "policy": "If MU2DoorOpen Then SL2LightOn\n\nMU2DoorOpen = (MU2Door.status == \"Open\")\nSL2LightOn = (SL2Light.status == \"On\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 250,
+        "text": "When motion (MO2) active if luminance (AM1) is below 15 LUX, turn on light (SL3).",
+        "policy": "If MO2MotionActive and AM1LuminanceSensor.status < 15 Then SL3LightOn\n\nMO2MotionActive = (MO2MotionSensor.status == \"Active\")\nSL3LightOn = (SL3Light.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 251,
+        "text": "When presence (PR6) becomes present if between 5-8pm, turn on oven (OL3).",
+        "policy": "If (CurrentTime() > 5pm and CurrentTime() < 8pm) and PR6PresenceDetected Then OL3OvenOn\n\nPR6PresenceDetected = (PR6Presence.status == \"Detected\")\nOL3OvenOn = (OL3Oven.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 252,
+        "text": "When motion (MO2) active if not presence (PR6), send a notification.",
+        "policy": "If MO2MotionActive and PR6PresenceNotDetected Then notifyUser\n\nMO2MotionActive = (MO2MotionSensor.status == \"Active\")\nPR6PresenceNotDetected = (PR6Presence.status == \"NotDetected\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 253,
+        "text": "When wardrobe door (MU4) open, turn on light (SL5); when door (MU4) close, turn off light (SL5).",
+        "policy": "If MU4WardrobeDoorOpen Then SL5LightOn\nIf MU4WardrobeDoorClosed Then SL5LightOff\n\nMU4WardrobeDoorOpen = (MU4WardrobeDoor.status == \"Open\")\nMU4WardrobeDoorClosed = (MU4WardrobeDoor.status == \"Closed\")\nSL5LightOn = (SL5Light.status == \"On\")\nSL5LightOff = (SL5Light.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 254,
+        "text": "When bedroom motion (MO6) active between 10am and 12am, turn on light (SW3).",
+        "policy": "If (CurrentTime() > 10am and CurrentTime() < 12am) and MO6BedroomMotionActive Then SW3LightOn\n\nMO6BedroomMotionActive = (MO6BedroomMotion.status == \"Active\")\nSW3LightOn = (SW3Light.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 255,
+        "text": "When kitchen motion (HM1) active between 7am and 12am, turn on microwave outlet (OL6).",
+        "policy": "If (CurrentTime() > 7am and CurrentTime() < 12am) and HM1KitchenMotionActive Then OL6MicrowaveOutletOn\n\nHM1KitchenMotionActive = (HM1KitchenMotionSensor.status == \"Active\")\nOL6MicrowaveOutletOn = (OL6MicrowaveOutlet.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 256,
+        "text": "When sink water leakage (WL1) detected and all motion (MO4\u223c6, HM1\u223c2) inactive, send a text message.",
+        "policy": "If (WL1SinkWaterLeakageDetected and MO4MotionInactive and MO5MotionInactive and MO6MotionInactive and HM1MotionInactive and HM2MotionInactive) Then sendSMS\n\nWL1SinkWaterLeakageDetected = (WL1SinkWaterLeakage.status == \"Detected\")\nMO4MotionInactive = (MO4MotionSensor.status == \"Inactive\")\nMO5MotionInactive = (MO5MotionSensor.status == \"Inactive\")\nMO6MotionInactive = (MO6MotionSensor.status == \"Inactive\")\nHM1MotionInactive = (HM1MotionSensor.status == \"Inactive\")\nHM2MotionInactive = (HM2MotionSensor.status == \"Inactive\")\nsendSMS = (sendMessage() == \"True\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 257,
+        "text": "When front door (MU5) open and luminance (HM2) is below 30 LUX, turn on lights (LB1, OL7).",
+        "policy": "If MU5FrontDoorOpen and HM2LuminanceSensor.status < 30 Then LB1LightOn and OL7LightOn\n\nMU5FrontDoorOpen = (MU5FrontDoor.status == \"Open\")\nLB1LightOn = (LB1Light.status == \"On\")\nOL7LightOn = (OL7Light.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 258,
+        "text": "When bathroom motion (MO4) active and water sensor (WS1) wet, turn on fan (SW1).",
+        "policy": "If MO4BathroomMotionActive and WS1WaterSensorWet Then SW1FanOn\n\nMO4BathroomMotionActive = (MO4BathroomMotionSensor.status == \"Active\")\nWS1WaterSensorWet = (WS1WaterSensor.status == \"Wet\")\nSW1FanOn = (SW1Fan.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 259,
+        "text": "When 7am, turn on coffee outlet (OL5); when 6pm, turn off coffee outlet (OL5).",
+        "policy": "If CurrentTime() == 7am Then OL5CoffeeOutletOn\nIf CurrentTime() == 6pm Then OL5CoffeeOutletOff\n\nOL5CoffeeOutletOn = (OL5CoffeeOutlet.status == \"On\")\nOL5CoffeeOutletOff = (OL5CoffeeOutlet.status == \"Off\")",
+        "category": "Simple Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 260,
+        "text": "When bathroom motion (MO4) active between 10am and 1am, turn on light (SW2).",
+        "policy": "If (CurrentTime() > 10am and CurrentTime() < 1am) and MO4BathroomMotionActive Then SW2LightOn\n\nMO4BathroomMotionActive = (MO4BathroomMotionSensor.status == \"Active\")\nSW2LightOn = (SW2Light.status == \"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 261,
+        "text": "When study room motion (MO5) active between 9am and 12am and luminance (HM2) is below 30 LUX, turn on lights (LB1, OL7, HB1\u223c2).",
+        "policy": "If (CurrentTime() > 9am and CurrentTime() < 12am) and MO5StudyRoomMotionActive and HM2LuminanceSensor.status < 30 Then LB1LightOn and OL7LightOn and HB1LightOn and HB2LightOn\n\nMO5StudyRoomMotionActive = (MO5StudyRoomMotionSensor.status == \"Active\")\nLB1LightOn = (LB1Light.status == \"On\")\nOL7LightOn = (OL7Light.status == \"On\")\nHB1LightOn = (HB1Light.status ==\"On\")\nHB2LightOn = (HB2Light.status ==\"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 262,
+        "text": "When study desk motion (HM2) active between 9am and 12am and luminance (HM2) is below 30 LUX, turn on light (LB1, OL7, HB1\u223c2).",
+        "policy": "If (CurrentTime() > 9am and CurrentTime() < 12am) and HM2StudyDeskMotionActive and HM2LuminanceSensor.status < 30 Then LB1LightOn and OL7LightOn and HB2LightOn and HB2LightOn\n\nHM2StudyDeskMotionActive = (HM2StudyDeskMotionSensor.status == \"Active\")\nLB1LightOn = (LB1Light.status == \"On\")\nOL7LightOn = (OL7Light.status == \"On\")\nHB1LightOn = (HB1Light.status ==\"On\")\nHB2LightOn = (HB2Light.status ==\"On\")",
+        "category": "Statements with Comparisons",
+        "syntax_valid": true
+    },
+    {
+        "id": 263,
+        "text": "When stovetop motion (HM4) active, if Hue switch (HS1) activates button 1 (day mode) or 3 (nap mode), turn on lamp outlet (OL8).",
+        "policy": "If HM4StoveTopMotionActive and (DayMode or NapMode) Then OL8LampOutletOn\n\nHM4StoveTopMotionActive = (HM4StoveTopMotionSensor.status == \"Active\")\nDayMode = (HS1HueSwitch.status == \"DayMode\")\nNapMode = (HS1HueSwitch.status == \"NapMode\")\nOL8LampOutletOn = (LampOutlet.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 264,
+        "text": "When stovetop motion (HM4) inactive for 5 minutes, turn off the lamp outlet (OL8).",
+        "policy": "If (timer(HM4StoveTopMotionInactive) >= 300) Then OL8LampOutletOff\n\nHM4StoveTopMotionInactive = (HM4StoveTopMotionSensor.status == \"Inactive\")\nOL8LampOutletOff = (OL8LampOutlet.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 265,
+        "text": "When living room motion (MO7) active, if Hue switch (HS1) activates button 1 (day mode) or 3 (nap mode), turn on living room light (LB2).",
+        "policy": "If MO7LivingRoomMotionActive and DayMode Then LB2LivingRoomLightOn\nIf MO7LivingRoomMotionActive and NapMode Then LB2LivingRoomLightOn\n\nMO7LivingRoomMotionActive = (MO7LivingRoomMotionSensor.status == \"Active\")\nDayMode = (HS1HueSwitch.status == \"DayMode\")\nNapMode = (HS1HueSwitch.status == \"NapMode\")\nLB2LivingRoomLightOn = (LB2LivingRoomLight.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 266,
+        "text": "When bathroom motion (HM3) active, if Hue switch (HS1) activates button 1 (day mode) or 3 (nap mode), turn on lights (SW4, HB3); if Hue switch (HS1) activates button 2 (night mode), turn on light switch (SW4).",
+        "policy": "If HM3BathroomMotionActive and DayMode Then SW4LightOn and HB3LightOn\nIf HM3BathroomMotionActive and NapMode Then SW4LightOn and HB3LightOn\nIf HM3BathroomMotionActive and NightMode Then SW4LightOn\n\nHM3BathroomMotionActive = (HM3BathroomMotionSensor.status == \"Active\")\nDayMode = (HS1HueSwitch.status == \"DayMode\")\nNapMode = (HS1HueSwitch.status == \"NapMode\")\nNightMode = (HS1HueSwitch.status == \"NightMode\")\nSW4LightOn = (SWLight.status == \"On\")\nHB3LightOn = (HB3Light.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 267,
+        "text": "When bedroom motion (HM6) active, if Hue switch (HS1) activates button 1 (day mode), turn on light (HB5).",
+        "policy": "If HM6BedroomMotionActive and DayMode Then HB5LightOn\n\nHM6BedroomMotionActive = (HM6BedroomMotionSensor.status == \"Active\")\nDayMode = (HS1HueSwitch.status == \"DayMode\")\nHB5LightOn = (Light.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 268,
+        "text": "When study room motion (HM5) active, if Hue switch (HS1) activates button 1 (day mode) or 3 (nap mode), turn on light (HB4).",
+        "policy": "If HM5StudyRoomMotionActive and DayMode Then HB4LightOn\nIf HM5StudyRoomMotionActive and NapMode Then HB4LightOn\n\nHM5StudyRoomMotionActive = (HM5StudyRoomMotionSensor.status == \"Active\")\nDayMode = (HS1HueSwitch.status == \"DayMode\")\nNapMode = (HS1HueSwitch.status == \"NapMode\")\nHB4LightOn = (HB4Light.status == \"On\")",
+        "category": "Complex Conditional Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 269,
+        "text": "When no motion (MO1) or presence (PR1\u223c5) is detected for 5 minutes, turn off light (SL1).",
+        "policy": "If timer(MO1MotionNotDetected) >= 300 or timer(PR1PresenceNotDetected) >= 300 or timer(PR2PresenceNotDetected) >= 300 or timer(PR3PresenceNotDetected) >= 300 or timer(PR4PresenceNotDetected) >= 300 or timer(PR5PresenceNotDetected) >= 300 Then LightOff\n\nMO1MotionNotDetected = (MO1MotionSensor.status == \"NotDetected\")\nPR1PresenceNotDetected = (PR1Presence.status == \"NotDetected\")\nPR2PresenceNotDetected = (PR2Presence.status == \"NotDetected\")\nPR3PresenceNotDetected = (PR3Presence.status == \"NotDetected\")\nPR4PresenceNotDetected = (PR4Presence.status == \"NotDetected\")\nPR5PresenceNotDetected = (PR5Presence.status == \"NotDetected\")\nLightOff = (Light.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 270,
+        "text": "When motion (MO1) is active for longer than 60 minutes, send a message to alert.",
+        "policy": "If timer(MO1MotionActive) > 3600 Then sendSMS\n\nMO1MotionActive = (MO1MotionSensor.status == \"Active\")\nsendSMS = (sendMessage() == \"True\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 271,
+        "text": "When door (MU3) opened, turn on light (SL4); when door (MU3) closed if motion (MO3) inactive for 5 minutes, turn off light (SL4).",
+        "policy": "If MU3DoorOpen Then SL4LightOn\nIf MU3DoorClosed and timer(MO3MotionInactive) >= 300 Then SL4LightOff\n\nMU3DoorOpen = (MU3Door.status == \"Open\")\nMU3DoorClosed = (MU3Door.status == \"Closed\")\nMO3MotionInactive = (MO3MotionSensor.status == \"Inactive\")\nSL4LightOff = (Light.status == \"Off\")\nSL4LightOn = (Light.status == \"On\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 272,
+        "text": "When humidity (AM2) exceeds 85% if motion (AM2) active but motion (MO3) keeps inactive for 30 minutes, send a notification.",
+        "policy": "If AM2HumiditySensor.status > 85 and AM2MotionActive and timer(MO3MotionInactive) >= 1800 Then notifyUser\n\nAM2MotionActive = (AM2MotionSensor.status == \"Active\")\nMO3MotionInactive = (MO3MotionSensor.status == \"Inactive\")\nnotifyUser = (sendNotifications() == \"True\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 273,
+        "text": "When bathroom motion (MO4) inactive and bathroom door\n(MU6) closed, turn off light switch (SW2) after 10 minutes.",
+        "policy": "If timer(MO4BathroomMotionInactive) >= 600 and timer(MU6BathroomDoorClosed) >= 600 Then SW2LightSwitchOff\n\nMO4BathroomMotionInactive = (MO4BathroomMotionSensor.status == \"Inactive\")\nMU6BathroomDoorClosed = (MU6BathroomDoor.status == \"Closed\")\nSW2LightSwitchOff = (SW2LightSwitch.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 274,
+        "text": "When living room motion (MO7) inactive for 20 minutes, turn off living room light (LB2).",
+        "policy": "If timer(MO7LivingRoomMotionInactive) >= 1200 Then LB2LivingRoomLightOff\n\nMO7LivingRoomMotionInactive = (MO7LivingRoomMotionSensor.status == \"Inactive\")\nLB2LivingRoomLightOff = (LB2LivingRoomLight.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 275,
+        "text": "When bathroom motion (HM3) inactive and door (MU8) open for 15 minutes, turn off lights (SW4, HB3).",
+        "policy": "If timer(HM3BathroomMotionInactive) >= 900 and timer(MU8DoorOpen) >= 900 Then SW4LightOff and HB3LightOff\n\nHM3BathroomMotionInactive = (HM3BathroomMotionSensor.status == \"Inactive\")\nMU8DoorOpen = (MU8Door.status == \"Open\")\nSW4LightOff = (SW4Light.status == \"Off\")\nHB3LightOff = (HB3Light.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 276,
+        "text": "When bedroom motion (HM6) inactive for 10 minutes, turn off light (HB5).",
+        "policy": "If timer(HM6BedroomMotionInactive) >= 600 Then HB5LightOff\n\nHM6BedroomMotionInactive = (HM6BedroomMotionSensor.status == \"Inactive\")\nHB5LightOff = (HB5Light.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 277,
+        "text": "When study room motion (HM5) inactive for 30 minutes, turn off light (HB4).",
+        "policy": "If timer(HM5StudyRoomMotionInactive) >= 1800 Then HB4LightOff\n\nHM5StudyRoomMotionInactive = (HM5StudyRoomMotionSensor.status == \"Inactive\")\nHB4LightOff = (HB4Light.status == \"Off\")",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 278,
+        "text": "When front door (MU9) open, set the dimmer (DL1) brightness level to 100%; after 5 minutes, set the dimmer to 0%.",
+        "policy": "If MU9FrontDoorOpen Then DL1Dimmer100\nIf timer(DL1Dimmer100) >= 300 Then DL1Dimmer0\n\nMU9FrontDoorOpen = (MU9FrontDoor.status == \"Open\")\nDL1Dimmer100 = (DL1Dimmer.status == 100)\nDL1Dimmer0 = (DL1Dimmer.status == 0)",
+        "category": "Timed Conditional Control Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 284,
+        "text": "Allow light to be turned off only if lastly it was on.",
+        "policy": "If BedroomLightOff Then yesterday(BedroomLightOn)\nIf LivingRoomLightOff Then yesterday(LivingRoomLightOn)\nIf HallwayLightOff Then yesterday(HallwayLightOn)\n\nBedroomLightOff = (BedroomLight.status == \"Off\")\nBedroomLightOn = (BedroomLight.status == \"On\")\nLivingRoomLightOff = (LivingRoomLight.status == \"Off\")\nLivingRoomLightOn = (LivingRoomLight.status == \"On\")\nHallwayLightOn = (HallwayLight.status == \"On\")\nHallwayLightOff = (HallwayLight.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 285,
+        "text": "Allow turning off coffee machine only if lastly it was on.",
+        "policy": "If CoffeeMachineOff Then yesterday(CoffeeMachineOn)\n\nCoffeeMachineOff = (CoffeeMachine.status == \"Off\")\nCoffeeMachineOn = (CofeeMachine.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 286,
+        "text": "Allow turning off TV only if lastly it was on.",
+        "policy": "If TVOff Then yesterday(TVOn)\n\nTVOff = (TV.status == \"Off\")\nTVOn = (TV.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 287,
+        "text": "Allow turning off water pump only if lastly it was on.",
+        "policy": "If WaterPumpOff Then yesterday(WaterPumpOn)\n\nWaterPumpOff = (WaterPump.status == \"Off\")\nWaterPumpOn = (WaterPump.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 288,
+        "text": "Allow turning off thermostat only if lastly it was on.",
+        "policy": "If ThermostatOff Then yesterday(ThermostatOn)\n\nThermostatOff = (Thermostat.status == \"Off\")\nThermostatOn = (Thermostat.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 289,
+        "text": "Allow living room window to be closed only if lastly it was open.",
+        "policy": "If LivingRoomWindowClosed Then yesterday(LivingRoomWindowOpen)\n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nLivingRoomWindowClosed = (LivingRoomWindow.status == \"Closed\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 290,
+        "text": "If MS2 is active, then L3 will be off as long as L4 is on.",
+        "policy": "If MS2Active Then L3Off since L4On\n\nMS2Active = (MS2.status == \"Active\")\nL3Off = (L3.status == \"Off\")\nL4On = (L4.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 291,
+        "text": "If MS2 is inactive for 10 minutes, then L3 will be off as long as L5 is off.",
+        "policy": "If timer(MS1Inactive) >= 600 Then L3Off since L5Off\n\nMS1Inactive = (MS1.status == \"Inactive\")\nL3Off = (L3.status == \"Off\")\nL5Off = (L5.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 292,
+        "text": "If MS3 is inactive for 5 minutes, then L4 will be off as long as L2 is off.",
+        "policy": "If timer(MS3Inactive) >= 300 Then L4Off since L2Off\n\nMS3Inactive = (MS3.status == \"Inactive\")\nL4Off = (L4.status == \"Off\")\nL2Off = (L2.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 293,
+        "text": "If MS4 is inactive for 15 minutes, then L5 will be off as long as L6 is on.",
+        "policy": "If timer(MS4Inactive) > 900 Then L5Off since L6On\n\nMS4Inactive = (MS4.status == \"Inactive\")\nL5Off = (L5.status == \"Off\")\nL6On = (L6.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 294,
+        "text": "If MS3 is inactive for 10 minutes, then L4 will be off as long as L2 is on.",
+        "policy": "If timer(MS3Inactive) >= 600 Then L4Off since L2On\n\nMS3Inactive = (MS3.status == \"Inactive\")\nL4Off = (L4.status == \"Off\")\nL2On = (L2.status == \"On\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 295,
+        "text": "If V is on for 15 minutes, then V will be off as long as W is off.",
+        "policy": "If timer(VOn) >= 900 Then VOff since WOff\n\nVOn = (V.status == \"On\")\nVOff = (V.status == \"Off\")\nWOff = (W.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 296,
+        "text": "Allow hallway light to get turned on only if the hallway motion sensor has tripped since the hallway light was off.",
+        "policy": "If HallwayLightOn Then (timer(HallwayMotionSensorActive) < 20 and timer(HallwayMotionSensorActive) > 0) since HallwayLightOff\n\nHallwayLightOn = (HallwayLight.status == \"On\")\nHallwayLightOff = (HallwayLight.status == \"Off\")\nHallwayMotionSensorActive = (HallwayMotionSensor.status == \"Active\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 297,
+        "text": "Allow AC to be switched on only if the AC was off for as long as the heater was off.",
+        "policy": "If ACOn Then ACOff since HeaterOff\n\nACOn = (AC.status == \"On\")\nACOff = (AC.status == \"Off\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 298,
+        "text": "Allow heater to be switched on only if the heater was off for as long as the AC was off.",
+        "policy": "If HeaterOn  Then HeaterOff since ACOff\n\nACOff = (AC.status == \"Off\")\nHeaterOn = (Heater.status == \"On\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 299,
+        "text": "Allow living room window to be opened only if the heater will be off as long as the AC is off.",
+        "policy": "If LivingRoomWindowOpen Then HeaterOff since ACOff\n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nACOff = (AC.status == \"Off\")\nHeaterOff = (Heater.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    },
+    {
+        "id": 300,
+        "text": "Allow living room window to be opened only if the AC will be off as long as the heater is off.",
+        "policy": "If LivingRoomWindowOpen Then ACOff since HeaterOff\n\nLivingRoomWindowOpen = (LivingRoomWindow.status == \"Open\")\nHeaterOff = (Heater.status == \"Off\")\nACOff = (AC.status == \"Off\")",
+        "category": "Temporal Logic Statements",
+        "syntax_valid": true
+    }
+]

@@ -1,0 +1,28 @@
+<policy> ::= <invariant> | <condition_assignment>
+<invariant> ::= "If" <if_condition> "Then" <then_condition>
+<if_condition> ::= <predicate> |  <predicate> "and" <if_condition> | <predicate> "or" <if_condition> |  "not" <if_condition> | "(" <if_condition> ")"
+<predicate> ::= <predicate_factor> | <predicate_factor> "and" <predicate> | <predicate_factor> "or" <predicate>  | "not" <predicate> | "(" <predicate> ")"
+<predicate_factor> ::=  <term> <relational_operator> <term> | <condition_assigned_variable> | "true" | "(" <predicate_factor> ")"
+<then_condition> ::= <if_condition> | <if_condition> "since" <then_condition> | "yesterday" <then_condition> | "(" <then_condition> ")" | "not" <if_condition> 
+
+<term> ::= <term_factor> | <term> <arithmetic_operator> <term_factor> | "(" <term> ")"
+<term_factor> ::= <condition_assigned_variable> | <device> "." <device_attribute> | <constant> | <function_call>
+<function_call> ::= <function> "(" (<terms> | "") ")"
+<terms> ::= <term_factor> | <term_factor> "," <terms>
+<constant> ::= <integer> | <real_number> | <string> | <time>
+<function> ::= <identifier>
+<device> ::= <identifier>
+<device_attribute> ::= <identifier>
+<condition_assigned_variable> ::= <identifier>
+
+<condition_assignment> ::= <condition_assigned_variable> "=" (<predicate> | <constant> | <function_call>)
+
+<identifier>          : ( <letter> | "_" ) { <letter> | <digit> | "_" }
+<letter> ::= "A".."Z" | "a".."z"
+<digit> ::= "0".."9"
+<integer> ::=  ["-"] <digit> { <digit> }
+<real_number> ::= ["-"] <integer> ["." <integer>]
+<string> ::= '"' { <letter> | <digit> | "_" } '"'
+<time> ::= <hour> ":" <minute> [ ":" <second> ] ["am" | "pm"]
+<arithmetic_operator> ::= "+" | "-" | "*" | "/"
+<relational_operator> ::= "==" | "!=" | ">=" | "<=" | ">" | "<"
